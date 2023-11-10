@@ -1,0 +1,23 @@
+<!-- Create a form container, show the task name and description-->
+<form>
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" class="form-control" id="ShowTaskName" placeholder="<%= @task.name %>" readonly/>
+  </div>
+  <div class="form-group">
+    <label>Description</label>
+    <input type="text" class="form-control" id="ShowTaskDescription" value="<%= @task.description %>" readonly/>
+  </div>
+  <div >
+  <!-- Add some space after the form for the buttons-->
+    <br/>
+    <%= link_to "Edit this task", edit_task_path(@task), class:"btn btn-primary" %>
+    <%= link_to "Back to tasks", tasks_path, class:"btn btn-dark" %>
+    
+    
+  </div>
+  <br/>
+  <div>
+    <%= button_to "Destroy", tasks_path(@task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"btn btn-danger"%>
+  </div>
+</form>
